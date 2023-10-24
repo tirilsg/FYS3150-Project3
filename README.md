@@ -38,7 +38,7 @@ This program defines a function `simulateAndLogData(trap, filename, w_v, fs, max
 
 --------------------
 
-### linking:
+### Linking of our project files:
 To run the program `time_independent.cpp`:
 ```sh
 g++ time_independent.cpp src/*.cpp -I include -o time_independent -O2 -llapack -lblas -larmadillo
