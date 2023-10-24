@@ -59,8 +59,8 @@ g++ time_dependent.cpp src/*.cpp -I include -o time_dependent -O2 -llapack -lbla
 The simulations ran by the programs `time_independent.cpp` and `time_dependent.cpp` produce sets of data, which can be imported and visualized by running the python programs with the similar names: 
 
 ### `time_independent.py`:
+By running our program `time_independent.cpp`, we will obtain a number of files, which we can interpret and visualize by running the code in this python file. The program imports these files, and creates plots showing the particles movement in the xyz-plane, as well as relevant phase space plots, and an error analysis. 
 
 
-
-### `time_dependent.cpp`:
-
+### `time_dependent.py`:
+By running our program `time_dependent.cpp`, we will obtain a number of files, which we can interpret and visualize by running the code in this python file. The program imports these files, and returns plots visualizing the fraction of trapped particles as a function of the frequency $w_v$. 
