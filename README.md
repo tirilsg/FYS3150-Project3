@@ -2,6 +2,8 @@
 
 This repository contains c++ code constructing a model for a penning trap, used to run multiple simulations testing both the accuracy of the model, and the physics at work within the system. The majority of the code is devided into files of their own, with header and source files sorted in maps `src` (source files) and `include` (header files), which is has to be linked together when testing the code. The code is split into multiple files: 
 
+----------------------
+
 - ### `particle_class.h`:
 Contains a class `Particle` that is used to define a particle by mass, charge, a position vector and a velocity vector. This class also contains a function `escape_test()` that checks whether the particle exsists within the bounds of the penning trap. 
 
@@ -21,8 +23,21 @@ Contains code for a function `twoq(article1, particle2, max_t, iterations,filena
 Contains the implementations of a function `singleqmotion(particle, max_t, iterations, filename, useRK4)` that simulates the movement of a single particle within the environment of a penning trap. This function takes a boolean useRK4 as argument, that dictates whether we use the method `evolve_RK4(dt,t)` to estimate the particle trajectory or not. The data is saved in a file.
 
 
+------------------------
 
-This repository contains the model for the penning trap, constructed in c++, used to
+The simulations themselves is done by calling the functions implemented in the files above, which we simply link to each of our main programs. 
+
+### `time_independent.cpp`:
+All the simulations done in this program is independent of time.
+This file contains code that estimates the movement of a single particle 1 in a penning trap, two particles 1 and 2 in a penning trap with and without particle interactions, and simulations for usage of both `evolve_forward_Euler(dt,t)` and `evolve_RK4(dt,t)` for a single particle 1. 
 
 
+### `time_dependent.cpp`:
+All the simulations done in this program is independent of time.
+This file contains code that estimates the movement of a single particle 1 in a penning trap
+
+### linking:
+
+
+hese simulations produce datasets which are 
 `#include <iostream>`
