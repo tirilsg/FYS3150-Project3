@@ -38,7 +38,7 @@ This program defines a function `simulateAndLogData(trap, filename, w_v, fs, max
 
 --------------------
 
-### Linking of our project files:
+### Linking and compiling of our project files:
 To run the program `time_independent.cpp`:
 ```sh
 g++ time_independent.cpp src/*.cpp -I include -o time_independent -O2 -llapack -lblas -larmadillo
@@ -64,3 +64,8 @@ By running our program `time_independent.cpp`, we will obtain a number of files,
 
 ### `time_dependent.py`:
 By running our program `time_dependent.cpp`, we will obtain a number of files, which we can interpret and visualize by running the code in this python file. The program imports these files, and returns plots visualizing the fraction of trapped particles as a function of the frequency $w_v$. 
+
+
+-------------
+
+Finally, within our map `doc-construction`, one can find a compilation of all the plots created by `time_independent.py` and `time_dependent.py`, as well as the latex file that imports these plots into our Project report.
