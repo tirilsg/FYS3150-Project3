@@ -25,7 +25,7 @@ Contains the implementations of a function `singleqmotion(particle, max_t, itera
 
 ------------------------
 
-The simulations themselves is done by calling the functions implemented in the files above, which we simply link to each of our main programs. 
+The simulations themselves is done by calling the functions implemented in the files above, which we simply link to each of our main programs. We decided to split the program code into two seperate files, dependent on time-dependency, since the program `time_dependent.cpp` takes a long time to run.
 
 ### `time_independent.cpp`:
 All the simulations done in this program is independent of time.
@@ -34,12 +34,25 @@ This file contains code that estimates the movement of a single particle 1 in a 
 
 ### `time_dependent.cpp`:
 All the simulations done in this program is dependent of time.
-This file contains code that estimates the movement of a single particle 1 in a penning trap
+This program defines a function `simulateAndLogData(trap, filename, w_v, fs, max_t, iterations)` that fills a penning trap with particles, and estimates the trajectories of each of these particles by `evolve_RK4(dt,t)` and estimates how many particles are still trapped, for a vector containing different values for amplitudes and frequencies $w_v$ and stores the data for frequencies, and amount of trapped particles in a file. This function is called in our `main()`, and is used to create multiple simulations for a time-dependent system.
 
 --------------------
 
 ### linking:
-
+To run the program `time_independent.cpp`:
+```sh
+g++ time_independent.cpp src/*.cpp -I include -o time_independent -O2 -llapack -lblas -larmadillo
+```
+```sh
+./time_independent
+```
+To run the program `time_dependent.cpp`:
+```sh
+g++ time_dependent.cpp src/*.cpp -I include -o time_dependent -O2 -llapack -lblas -larmadillo
+```
+```sh
+./time_dependent
+```
 
 ----------------
 
@@ -51,4 +64,3 @@ The simulations ran by the programs `time_independent.cpp` and `time_dependent.c
 
 ### `time_dependent.cpp`:
 
-`#include <iostream>`
