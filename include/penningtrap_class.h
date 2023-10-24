@@ -48,11 +48,10 @@ class PenningTrap{
     arma::vec E = arma::vec(3);
     double r_norm = arma::norm(r);
     if (time_dependence == true){//checks if we want to model by using time dependence
-      double V_def = V0*(1.0+f_amp*cos(w_v*t)); //the definition for V0 for time dependence, formula (8) in report
       if (r_norm <= d) {//definition of electric field, formula (6) in the report
-        E(0) = V_def/pow(d,2)*r(0);
-        E(1) = V_def/pow(d,2)*r(1);     
-        E(2) = -2.0*V_def/pow(d,2)*r(2);
+        E(0) = V0*(1.0+f_amp*cos(w_v*t))/pow(d,2)*r(0); //using the definition for V0 for time dependence, formula (8) in report v0=V0*(1.0+f_amp*cos(w_v*t))
+        E(1) = V0*(1.0+f_amp*cos(w_v*t))/pow(d,2)*r(1);     
+        E(2) = -2.0*V0*(1.0+f_amp*cos(w_v*t))/pow(d,2)*r(2);
       }
     }
     else{ //if no time dependence
