@@ -5,10 +5,10 @@ This repository contains c++ code constructing a model for a penning trap, used 
 ----------------------
 
 ### `particle_class.h`:
-Contains a class `Particle` that is used to define a particle by mass, charge, a position vector and a velocity vector. This class also contains a function `escape_test()` that checks whether the particle exsists within the bounds of the penning trap. 
+Contains a class `Particle` that is used to define a particle by mass, charge, a position vector and a velocity vector. This class also contains a function `escape_test()` that checks whether the particle exists within the bounds of the penning trap. 
 
 ### `penningtrap_class.h`:
-Contains a definition of the class `PenningTrap`, that defines the environment within a penning trap, and uses this to define methods `evolve_forward_Euler(dt,t)` and `evolve_RK4(dt,t)` that estimates particle's movement within the trap, with the method `evolve_RK4(dt,t)` set as the default trajectory-estimation-method. The class contains definitions of booleans that defines whether the system is modelled as time-dependent (which is set to `false` by default), and whether the system estimates particle-trajectories by taking into consideration forces between particles that exsist within the trap (also `false` by default). Also contains a method `particle_add()` that adds a particle into our system, and a function `count_particles()` that conts the amount of particles within the system.
+Contains a definition of the class `PenningTrap`, that defines the environment within a penning trap, and uses this to define methods `evolve_forward_Euler(dt,t)` and `evolve_RK4(dt,t)` that estimates particle's movement within the trap, with the method `evolve_RK4(dt,t)` set as the default trajectory-estimation-method. The class contains definitions of Booleans that defines whether the system is modelled as time-dependent (which is set to `false` by default), and whether the system estimates particle-trajectories by taking into consideration forces between particles that exist within the trap (also `false` by default). Also contains a method `particle_add()` that adds a particle into our system, and a function `count_particles()` that counts the amount of particles within the system.
 
 ### `filltrap.cpp`:
 Contains a single function `fillPenningTrapWithRandomParticles(trap, number_of_particles)` that adds a number of Calcium ions into a system PenningTrap trap. 
@@ -17,15 +17,15 @@ Contains a single function `fillPenningTrapWithRandomParticles(trap, number_of_p
 Contains a single function `saveDataToTxt(filename, data)` that takes an arbitrary filename, as well as a set of data, and writes the data into the file. 
 
 ### `twoqmotion.cpp`:
-Contains code for a function `twoq(article1, particle2, max_t, iterations,filename, particle_int)` that adds two particles into a penning trap, and simulates their movement within the trap in an intervall of time, and saves the data into a file by calling  `saveDataToTxt(filename, data)`. 
+Contains code for a function `twoq(article1, particle2, max_t, iterations,filename, particle_int)` that adds two particles into a penning trap, and simulates their movement within the trap in an interval of time, and saves the data into a file by calling  `saveDataToTxt(filename, data)`. 
 
 ### `zdirmotion.cpp`:
-Contains the implementations of a function `singleqmotion(particle, max_t, iterations, filename, useRK4)` that simulates the movement of a single particle within the environment of a penning trap. This function takes a boolean useRK4 as argument, that dictates whether we use the method `evolve_RK4(dt,t)` to estimate the particle trajectory or not. The data is saved in a file.
+Contains the implementations of a function `singleqmotion(particle, max_t, iterations, filename, useRK4)` that simulates the movement of a single particle within the environment of a penning trap. This function takes a Boolean useRK4 as argument, that dictates whether we use the method `evolve_RK4(dt,t)` to estimate the particle trajectory or not. The data is saved in a file.
 
 
 ------------------------
 
-The simulations themselves is done by calling the functions implemented in the files above, which we simply link to each of our main programs. We decided to split the program code into two seperate files, dependent on time-dependency, since the program `time_dependent.cpp` takes a long time to run.
+The simulations themselves is done by calling the functions implemented in the files above, which we simply link to each of our main programs. We decided to split the program code into two separate files, dependent on time-dependency, since the program `time_dependent.cpp` takes a long time to run.
 
 ### `time_independent.cpp`:
 All the simulations done in this program is independent of time.
@@ -63,9 +63,5 @@ By running our program `time_independent.cpp`, we will obtain a number of files,
 
 
 ### `time_dependent.py`:
-By running our program `time_dependent.cpp`, we will obtain a number of files, which we can interpret and visualize by running the code in this python file. The program imports these files, and returns plots visualizing the fraction of trapped particles as a function of the frequency $w_v$. 
+By running our program `time_dependent.cpp`, we will obtain a number of files, which we can interpret and visualize by running the code in this python file. The program imports these files, and returns plots visualizing the fraction of trapped particles as a function of the frequency $w_v$.
 
-
--------------
-
-Finally, within our map `doc-construction`, one can find a compilation of all the plots created by `time_independent.py` and `time_dependent.py`, as well as the latex file that imports these plots into our Project report.
